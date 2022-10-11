@@ -1,0 +1,90 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/ManHyin/Homework/main/goods_services_final.csv"
+    },
+    "width": 700,
+    "height": 400,
+    "layer": [
+      {
+        "selection": {
+          "category_highlight": {
+            "type": "multi",
+            "fields": ["Category"],
+            "bind": "legend"
+          }
+        },
+        "mark": "bar",
+        "title": "CPI Annual Movement of Goods and Services in Australia",
+        "encoding": {
+          "y": {
+            "field": "CPI Annual Movement",
+            "type": "quantitative",
+            "title": "CPI Annual Movement"
+          },
+          "x": {"field": "Year", "type": "ordinal"},
+          "color": {
+            "field": "Category",
+            "scale": {"range": ["#ca8861", "#902784"]}
+          },
+          "opacity": {
+            "condition": {"selection": "category_highlight", "value": 1},
+            "value": 0.2
+          },
+          "tooltip": [
+            {"field": "Year", "type": "ordinal"},
+            {"field":"Category", "type":"nominal"},
+            {
+              "field": "CPI Annual Movement",
+              "type": "quantitative",
+              "title": "CPI Annual Movement"
+            }
+            
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "dx": -35,
+          "dy": -50,
+          "baseline": "bottom",
+          "fontSize": 15
+        },
+        "encoding": {
+          "text": {"field": "Category", "type": "nominal"},
+          "color": {"value": "black"},
+          "opacity": {
+            "condition": {"test": "datum['Category'] == 'Goods'", "value": 1},
+            "value": 0
+          },
+          "tooltip": [
+            {
+              "field": "CPI Annual Movement",
+              "type": "quantitative",
+              "title": "Unemployment Rate(%)"
+            },
+            {"field": "Year", "type": "ordinal"},
+            {"field": "Category", "type": "nominal"}
+          ]
+        }
+      },{
+      "mark": {
+        "type": "text",
+        "dx": -35,
+        "dy": 100,
+        "baseline": "middle",
+        "fontSize": 15
+      },
+      "encoding": {
+        "text": {"field": "Category", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {"test": "datum['Category'] == 'Services'", "value": 1},
+          "value": 0
+        }
+      }
+    }
+
+    ]
+  }
