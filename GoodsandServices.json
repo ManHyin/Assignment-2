@@ -42,49 +42,7 @@
             
           ]
         }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "dx": -35,
-          "dy": -50,
-          "baseline": "bottom",
-          "fontSize": 15
-        },
-        "encoding": {
-          "text": {"field": "Category", "type": "nominal"},
-          "color": {"value": "black"},
-          "opacity": {
-            "condition": {"test": "datum['Category'] == 'Goods'", "value": 1},
-            "value": 0
-          },
-          "tooltip": [
-            {
-              "field": "CPI Annual Movement",
-              "type": "quantitative",
-              "title": "Unemployment Rate(%)"
-            },
-            {"field": "Year", "type": "ordinal"},
-            {"field": "Category", "type": "nominal"}
-          ]
-        }
-      },{
-      "mark": {
-        "type": "text",
-        "dx": -35,
-        "dy": 100,
-        "baseline": "middle",
-        "fontSize": 15
-      },
-      "encoding": {
-        "text": {"field": "Category", "type": "nominal"},
-        "color": {"value": "black"},
-        "opacity": {
-          "condition": {"test": "datum['Category'] == 'Services'", "value": 1},
-          "value": 0
-        }
       }
-    }
 
     ]
   }

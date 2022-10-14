@@ -3,32 +3,77 @@
   "title": "Inflation Rate of countries in year 2021",
   "width": 700,
   "height": 400,
-  "projection": {
-    "type": "equalEarth"
-  },
   "data": {
-    "url": "https://raw.githubusercontent.com/ManHyin/3179/main/ne_110m.json",
+    "url": "https://raw.githubusercontent.com/DumIlin/3179/main/assignment2/js/ne_110m_admin_0_countries.json",
     "format": {
       "type": "topojson",
       "feature": "ne_110m_admin_0_countries"
     }
   },
-  "transform": [
-    {
-      "lookup": "properties.NAME",
-      "from": {
-        "data": {
-          "url": "https://raw.githubusercontent.com/ManHyin/3179/main/Inflation%202021.csv"
-        },
-        "key": "Country",
-        "fields": [
-          "Inflation"
-        ]
-      }
-    }
-  ],
+  "projection": {
+    "type": "equalEarth"
+  },
   "layer": [
     {
+      "transform": [
+        {
+          "calculate": "'There is no data in ' + datum.properties.NAME",
+          "as": "note"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightgray",
+        "stroke": "lightblue"
+      },
+      "encoding": {
+        "tooltip": {
+          "field": "note"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/DumIlin/3179/main/assignment2/js/oceans.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "oceans"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "skyblue"
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/DumIlin/3179/main/assignment2/js/WorldMapWithGraticules.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_graticules_30"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "lightgray"
+      }
+    },
+    {
+      "transform": [
+        {
+          "lookup": "properties.NAME",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/ManHyin/3179/main/Inflation%202021.csv"
+            },
+            "key": "Country",
+            "fields": [
+              "Inflation"
+            ]
+          }
+        }
+      ],
       "mark": {
         "type": "geoshape"
       },
@@ -47,13 +92,13 @@
               10
             ],
             "range": [
-              "#00AB90",
-              "#0099A7",
-              "#006BA1",
-              "#003C9A",
-              "#000F93",
-              "#00008A",
-              "#09007F"
+              "#FEFF00",
+              "#FFDF04",
+              "#FFBF09",
+              "#FFA00D",
+              "#FF8112",
+              "#FF6316",
+              "#FF461A"
             ]
           }
         },
@@ -75,15 +120,23 @@
         "type": "text",
         "baseline": "middle",
         "dx": -100,
-        "dy": 40,
+        "dy": 20,
         "fontsize": 12,
         "fontStyle": "bold"
       },
       "encoding": {
-        "text": {"field": "properties.NAME", "type": "nominal"},
-        "color": {"value": "white"},
+        "text": {
+          "field": "properties.NAME",
+          "type": "nominal"
+        },
+        "color": {
+          "value": "black"
+        },
         "opacity": {
-          "condition": {"test": "datum['properties.NAME'] == 'Brazil'", "value": 1},
+          "condition": {
+            "test": "datum['properties.NAME'] == 'Brazil'",
+            "value": 1
+          },
           "value": 0
         }
       }
@@ -93,15 +146,23 @@
         "type": "text",
         "baseline": "middle",
         "dx": -170,
-        "dy": -120,
+        "dy": -135,
         "fontsize": 12,
         "fontStyle": "bold"
       },
       "encoding": {
-        "text": {"field": "properties.NAME", "type": "nominal"},
-        "color": {"value": "white"},
+        "text": {
+          "field": "properties.NAME",
+          "type": "nominal"
+        },
+        "color": {
+          "value": "black"
+        },
         "opacity": {
-          "condition": {"test": "datum['properties.NAME'] == 'Canada'", "value": 1},
+          "condition": {
+            "test": "datum['properties.NAME'] == 'Canada'",
+            "value": 1
+          },
           "value": 0
         }
       }
@@ -111,15 +172,23 @@
         "type": "text",
         "baseline": "middle",
         "dx": 185,
-        "dy": -70,
+        "dy": -90,
         "fontsize": 12,
         "fontStyle": "bold"
       },
       "encoding": {
-        "text": {"field": "properties.NAME", "type": "nominal"},
-        "color": {"value": "white"},
+        "text": {
+          "field": "properties.NAME",
+          "type": "nominal"
+        },
+        "color": {
+          "value": "black"
+        },
         "opacity": {
-          "condition": {"test": "datum['properties.NAME'] == 'China'", "value": 1},
+          "condition": {
+            "test": "datum['properties.NAME'] == 'China'",
+            "value": 1
+          },
           "value": 0
         }
       }
@@ -129,21 +198,26 @@
         "type": "text",
         "baseline": "middle",
         "dx": 250,
-        "dy": 85,
+        "dy": 65,
         "fontsize": 12,
         "fontStyle": "bold"
       },
       "encoding": {
-        "text": {"field": "properties.NAME", "type": "nominal"},
-        "color": {"value": "white"},
+        "text": {
+          "field": "properties.NAME",
+          "type": "nominal"
+        },
+        "color": {
+          "value": "black"
+        },
         "opacity": {
-          "condition": {"test": "datum['properties.NAME'] == 'Australia'", "value": 1},
+          "condition": {
+            "test": "datum['properties.NAME'] == 'Australia'",
+            "value": 1
+          },
           "value": 0
         }
       }
     }
-
-
-
   ]
 }
