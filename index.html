@@ -14,20 +14,19 @@
 </head>
 
 <body>
-    <div class="middle">
-        <h1>Inflation Rate Dashboard</h1>
-        <h2>Inflation Rate of Countries in year 2021</h2>
-        <p>
-            The graph below shows the inflation rate of countries in the year 2021.
-            Next, there are 179 countries in the map chart below.
-            However, there are only four countries that have text annotations.
-            For example, Australia, Brazil, Canada and China.
-            Besides that, the inflation rate of each country is differentiated by colour saturation.
-            The lower the colour saturation, the lower the value of the inflation rate of the following country.
-        </p>
-        <center>
-            <div id="map"></div>
-</body>
+<div class="middle">
+<h1>Inflation Rate Dashboard</h1>
+<h2>Inflation Rate of Countries in year 2021</h2>
+<p>
+    The graph below shows the inflation rate of countries in the year 2021.
+    Next, there are 179 countries in the map chart below.
+    However, there are only four countries that have text annotations.
+    For example, Australia, Brazil, Canada and China.
+    Besides that, the inflation rate of each country is differentiated by colour saturation.
+    The lower the colour saturation, the lower the value of the inflation rate of the following country.
+</p>
+<center>
+    <div id="map"></div>
 </center>
 
 <h2>CPI Annual Movement of Goods and Services in Australia</h2>
@@ -74,10 +73,15 @@
 </center>
 </div>
 
-
 <script type="text/javascript">
-    var spec = "Inflation2021.json";
-    vegaEmbed('#map', spec, { "actions": false });
+    var spec1 = "https://raw.githubusercontent.com/ManHyin/Assignment-2/main/Inflation2021.json";
+    vegaEmbed('#map', spec1, { "actions": false });
+    var spec2 = "https://raw.githubusercontent.com/ManHyin/Assignment-2/main/GoodsandServices.json";
+    vegaEmbed('#bar', spec2, { "actions": false });
+    var spec3 = "https://raw.githubusercontent.com/ManHyin/Assignment-2/main/CPIPercentageChange.json";
+    vegaEmbed('#line', spec3, { "actions": false });
+    var spec4 = "https://raw.githubusercontent.com/ManHyin/Assignment-2/main/QuaterlyPercentageChange.json";
+    vegaEmbed('#scatter', spec4, { "actions": false });
 </script>
 
 </body>
