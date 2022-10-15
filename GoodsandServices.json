@@ -5,6 +5,7 @@
     },
     "width": 700,
     "height": 400,
+    "background":"lightgoldenrodyellow",
     "layer": [
       {
         "selection": {
@@ -15,7 +16,6 @@
           }
         },
         "mark": "bar",
-        "title": "CPI Annual Movement of Goods and Services in Australia",
         "encoding": {
           "y": {
             "field": "CPI Annual Movement",
@@ -25,7 +25,7 @@
           "x": {"field": "Year", "type": "ordinal"},
           "color": {
             "field": "Category",
-            "scale": {"range": ["#ca8861", "#902784"]}
+            "scale": {"range": ["#ca8861", "#4C1F7B"]}
           },
           "opacity": {
             "condition": {"selection": "category_highlight", "value": 1},
@@ -38,11 +38,9 @@
               "field": "CPI Annual Movement",
               "type": "quantitative",
               "title": "CPI Annual Movement"
-            }
-            
+            }     
           ]
         }
       }
-
     ]
   }

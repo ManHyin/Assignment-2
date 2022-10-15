@@ -1,0 +1,38 @@
+div {
+    text-align: center;
+    background-color: lightgoldenrodyellow;
+}
+
+h1 {
+    font-weight: 900;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    background-color: black;
+    color: white;
+    
+}
+
+h2 {
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    background-color: black;
+    color: white;
+    
+}
+
+body {
+    background-color: lightgoldenrodyellow;
+}
+
+p {
+    text-align: left;
+    font-weight: 500;
+}
+
+.middle{
+    text-align: center;
+    margin: auto;
+    width: 800px;
+}
+

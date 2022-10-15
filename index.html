@@ -9,40 +9,79 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
     <script src="Assignment2.js"></script>
-    <title> Assignment 2 Vega-Lite Graph </title>
+    <title>Assignment2 Vega-Lite graph</title>
+    <link rel="stylesheet" type="text/css" href="css.css" media="all">
 </head>
 
 <body>
-    <h1>Inflation Rate of Countries in year 2021</h1>
-    <p>
-        The graph below shows the inflation rate of countries in the year 2021.
-        Next, there are 179 countries in the map chart below.
-        However, there are only four countries that have text annotations.
-        For example, Australia, Brazil, Canada and China.
-        Besides that, the inflation rate of each country is differentiated by colour saturation.
-        The lower the colour saturation, the lower the value of the inflation rate of the following country.
-    </p>
-    <div id="map"></div>
-    
-    <h1>CPI Annual Movement of Goods and Services in Australia</h1>
-    <p>
-        The graph below shows the Consumer Price Index (CPI) Annual Movement of Goods and Services in Australia.
-        Next, the values of the CPI Annual Movement of Goods and Services are shown from the year 2003 to the year 2021.
-        Based on the stacked bar chart below, it proves that the value of CPI Annual Movement of Goods and Services in the year 2008 is the highest which is 4.4 in total.
-        Conversely, the value of CPI Annual Movement of Goods and Services in the year 2020 is the lowest which is 0.8 in total.
-        Lastly, either the values of the CPI Annual Movement of Goods or the values of the CPI Annual Movement of Services can be shown by selecting the Category legend.
-    </p>
-    <div id="bar"></div>
-
-    <h1>CPI Percentage Change (%) for year 2022 in Australia</h1>
-    <p>
-        The graph below shows the Consumer Price Index (CPI) Percentage Change (%) for the year 2022 in Australia.
-        Next, four months are shown in the line graph below which are March, June, September and December. 
-        Based on the line graph below, it shows that the value of the Consumer Price Index (CPI) Percentage Change (%) on 8th September 2022 is the highest which is 5%.
-        Conversely, the value of the Consumer Price Index (CPI) Percentage Change (%) on 20th June 2022 is the lowest which is -0.3%.
-        Lastly, the line graph of a specific month can be shown by selecting the Month legend or by filtering the drop-down menu.
-    </p>
-    <div id="line"></div>
+    <div class="middle">
+        <h1>Inflation Rate Dashboard</h1>
+        <h2>Inflation Rate of Countries in year 2021</h2>
+        <p>
+            The graph below shows the inflation rate of countries in the year 2021.
+            Next, there are 179 countries in the map chart below.
+            However, there are only four countries that have text annotations.
+            For example, Australia, Brazil, Canada and China.
+            Besides that, the inflation rate of each country is differentiated by colour saturation.
+            The lower the colour saturation, the lower the value of the inflation rate of the following country.
+        </p>
+        <center>
+            <div id="map"></div>
 </body>
+</center>
+
+<h2>CPI Annual Movement of Goods and Services in Australia</h2>
+<p>
+    The graph below shows the Consumer Price Index (CPI) Annual Movement of Goods and Services in Australia.
+    Next, the values of the CPI Annual Movement of Goods and Services are shown from the <b>year 2003</b> to the <b>year
+        2021</b>.
+    Based on the stacked bar chart below, it proves that the value of CPI Annual Movement of Goods and Services in the
+    year 2008 is the highest which is 4.4 in total.
+    Conversely, the value of CPI Annual Movement of Goods and Services in the year 2020 is the lowest which is 0.8 in
+    total.
+    Lastly, either the values of the CPI Annual Movement of Goods or the values of the CPI Annual Movement of Services
+    can be shown by selecting the Category legend.
+</p>
+<center>
+    <div id="bar"></div>
+</center>
+
+<h2>CPI Percentage Change (%) for year 2022 in Australia</h2>
+<p>
+    The graph below shows the Consumer Price Index (CPI) Percentage Change (%) for the year 2022 in Australia.
+    Next, four months are shown in the heatmap graph below which are March, June, September and December.
+    Based on the heatmap graph below, it shows that the value of the Consumer Price Index (CPI) Percentage Change (%) on
+    8th September 2022 is the highest which is 5%.
+    Conversely, the value of the Consumer Price Index (CPI) Percentage Change (%) on 20th June 2022 is the lowest which
+    is -0.3%.
+    Lastly, the heatmap graph of a specific month can be shown by selecting the Month legend.
+</p>
+<center>
+    <div id="line"></div>
+</center>
+
+<h2>Quarterly Percentage Change by capital city of Australia</h2>
+<p>
+    The graph below shows the Quarterly Percentage Change by capital city of Australia.
+    Next, there are four types of groups in the scatter graph.
+    Based on the scatter graph below, it shows that the alcohol and tobacco group has the lowest value of quaterly
+    percentage change compared with other groups.
+    Lastly, there is a drop down menu that showing the specific group that user needs.
+
+</p>
+<center>
+    <div id="scatter"></div>
+</center>
+</div>
+
+
+<script type="text/javascript">
+    var spec = "Inflation2021.json";
+    vegaEmbed('#map', spec, { "actions": false });
+</script>
+
+</body>
+
+
 
 </html>

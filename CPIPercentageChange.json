@@ -1,98 +1,48 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {
-      "url": "https://raw.githubusercontent.com/ManHyin/Assignment-2/main/cleaned%20CPI.csv"
-    },
-    "width": 700,
-    "height": 400,
-    "params": [
-          {
-            "name": "Month_selection",
-            "bind": {
-              "input": "select",
-              "options": [
-                null,
-                "Mar",
-                "Jun",
-                "Sep",
-                "Dec"
-              ],
-              "labels":[
-                "Show All",
-                "Mar",
-                "Jun",
-                "Sep",
-                "Dec"
-              ],
-              "name": "Month: "
-            }
-          }
-        ],
-      "transform": [
-          {"filter": "Month_selection == null || datum.Month == Month_selection"}
-      ],
-    "layer": [
-      {
-        "selection": {
-          "month_highlight": {
-            "type": "multi",
-            "fields": ["Month"],
-            "bind": "legend"
-          }
-        },
-        "mark": "line",
-        "title": "CPI Percentage Change (%) for year 2022 in Australia",
-        "encoding": {
-          "y": {
-            "field": "CPI (%)",
-            "type": "quantitative",
-            "title": "CPI (%)"
-          },
-          "x": {"field": "Day", "type": "quantitative"},
-          "color": {
-            "field": "Month",
-            "scale": {"range": ["#8A4D2D","#4C1F7B","#609DBE","#902784"]}
-          },
-          "opacity": {
-            "condition": {"selection": "month_highlight", "value": 1},
-            "value": 0.2
-          },
-          "tooltip": [
-            {"field": "Day", "type": "quantitative"},
-            {"field":"Month", "type":"ordinal"},
-            {
-              "field": "CPI (%)",
-              "type": "quantitative",
-              "title": "CPI (%)"
-            }
-          ]
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/ManHyin/Assignment-2/main/cleaned%20CPI.csv"
+  },
+  "width": 700,
+  "height": 400,
+  "background":"lightgoldenrodyellow",
+  "layer": [
+    {
+      "selection": {
+        "month_highlight": {
+          "type": "multi",
+          "fields": ["Month"],
+          "bind": "legend"
         }
       },
-      {
-        "mark": {
-          "type": "text",
-          "dx": -25,
-          "dy": -50,
-          "baseline": "bottom",
-          "fontSize": 10
+      "mark": "rect",
+      "encoding": {
+        "x": {
+          "bin": {"maxbins": 60},
+          "field": "Day",
+          "type": "quantitative",
+          "title": "Day"
         },
-        "encoding": {
-          "text": {"field": "Category", "type": "nominal"},
-          "color": {"value": "black"},
-          "opacity": {
-            "condition": {"test": "datum['Category'] == 'Goods'", "value": 1},
-            "value": 0
-          },
-          "tooltip": [
-            {
-              "field": "CPI Annual Movement",
-              "type": "quantitative",
-              "title": "Unemployment Rate(%)"
-            },
-            {"field": "Year", "type": "ordinal"},
-            {"field": "Category", "type": "nominal"}
-          ]
-        }
+        "y": {
+          "bin": {"maxbins": 40},
+          "field": "CPI (%)",
+          "type": "quantitative",
+          "title": "CPI (%)"
+        },
+        "color": {
+          "field": "Month",
+          "scale": {"range": ["#FF8112", "#4C1F7B", "#609DBE"]}
+        },
+        "opacity": {
+          "condition": {"selection": "month_highlight", "value": 1},
+          "value": 0.2
+        },
+        "tooltip": [
+          {"field": "Day", "type": "quantitative"},
+          {"field": "Month", "type": "ordinal"},
+          {"field": "CPI (%)", "type": "quantitative", "title": "CPI (%)"}
+        ]
       }
-    ]
-  }
+    }
+  ]
+}

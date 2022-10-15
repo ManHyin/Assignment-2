@@ -1,0 +1,56 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 700,
+    "height": 400,
+    "background":"lightgoldenrodyellow",
+    "data": {
+      "url": "https://raw.githubusercontent.com/ManHyin/Assignment-2/main/Quarterly%20%25%20Change%20in%20Capital%20City%20.csv"
+    },
+    "params": [
+      {
+        "name": "Group_selection",
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "Alcohol & tobacco",
+            "All groups",
+            "Clothing & footwear",
+            "Transport"
+          ],
+          "labels": [
+            "Show All",
+            "Alcohol & tobacco",
+            "All groups",
+            "Clothing & footwear",
+            "Transport"
+          ],
+          "name": "Group Selection: "
+        }
+      }
+    ],
+    "layer": [
+      {
+        "transform": [
+          {"filter": "Group_selection == null || datum.Group == Group_selection"}
+        ],
+        "mark": "point",
+        "encoding": {
+          "x": {"field": "Capital City", "type": "nominal"},
+          "y": {"field": "Quarterly Percentage Change", "type": "quantitative"},
+          "color": {"field": "Group", "type": "nominal"},
+          "shape": {"field": "Group", "type": "nominal"},
+          "size": {"field": "Group", "type": "nominal", "scale": {"range":[400,300,200,100]}},
+          "tooltip": [
+            {"field": "Group", "type": "nominal"},
+            {"field": "Capital City", "type": "nominal"},
+            {
+              "field": "Quarterly Percentage Change",
+              "type": "quantitative",
+              "title": "Quarterly % Change"
+            }
+          ]
+        }
+      }
+    ]
+  }
