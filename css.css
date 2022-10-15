@@ -14,11 +14,11 @@ h1 {
 
 h2 {
     font-weight: 700;
+    font-size: larger;
     font-family: 'Open Sans', sans-serif;
     text-align: center;
     background-color: black;
     color: white;
-    
 }
 
 body {
@@ -33,6 +33,6 @@ p {
 .middle{
     text-align: center;
     margin: auto;
-    width: 800px;
+    width: 1000px;
 }
 

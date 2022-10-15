@@ -3,8 +3,8 @@
   "data": {
     "url": "https://raw.githubusercontent.com/ManHyin/Assignment-2/main/cleaned%20CPI.csv"
   },
-  "width": 700,
-  "height": 400,
+  "width": 800,
+  "height": 500,
   "background":"lightgoldenrodyellow",
   "layer": [
     {
