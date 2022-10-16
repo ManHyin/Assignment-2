@@ -25,7 +25,7 @@
           "x": {"field": "Year", "type": "ordinal"},
           "color": {
             "field": "Category",
-            "scale": {"range": ["#ca8861", "#4C1F7B"]}
+            "scale": {"range": ["#984ea3", "#ff7f00"]}
           },
           "opacity": {
             "condition": {"selection": "category_highlight", "value": 1},

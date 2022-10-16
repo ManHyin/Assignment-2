@@ -31,7 +31,10 @@
         },
         "color": {
           "field": "Month",
-          "scale": {"range": ["#FF8112", "#4C1F7B", "#609DBE"]}
+          "scale": {"range": [
+          "#984ea3",
+          "#ff7f00",
+          "#609DBE"]}
         },
         "opacity": {
           "condition": {"selection": "month_highlight", "value": 1},
