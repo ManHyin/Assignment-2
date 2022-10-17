@@ -8,39 +8,35 @@
   "background":"lightgoldenrodyellow",
   "layer": [
     {
-      "selection": {
-        "month_highlight": {
-          "type": "multi",
-          "fields": ["Month"],
-          "bind": "legend"
-        }
-      },
       "mark": "rect",
       "encoding": {
-        "x": {
-          "bin": {"maxbins": 60},
-          "field": "Day",
-          "type": "quantitative",
-          "title": "Day"
-        },
         "y": {
           "bin": {"maxbins": 40},
+          "field": "Day",
+          "type": "nominal",
+          "title": "Day"        },
+        "color": {
           "field": "CPI (%)",
           "type": "quantitative",
-          "title": "CPI (%)"
+          "title": "CPI (%)",
+          "scale":  {
+
+            "range": [
+              "#FEFF00",
+              "#FFDF04",
+              "#FFBF09",
+              "#FFA00D",
+              "#FF8112",
+              "#FF6316",
+              "#FF461A"
+          ]}
         },
-        "color": {
+        "x": {
           "field": "Month",
           "type": "nominal",
-          "scale": {"range": [
-          "#984ea3",
-          "#ff7f00",
-          "#609DBE"]}
+          "scale": {"domain":["Mar", "Jun", "Sep"]}
         },
-        "opacity": {
-          "condition": {"selection": "month_highlight", "value": 1},
-          "value": 0.2
-        },
+        
         "tooltip": [
           {"field": "Day", "type": "quantitative"},
           {"field": "Month", "type": "ordinal"},
@@ -48,5 +44,8 @@
         ]
       }
     }
-  ]
+  ],
+  "config": {
+    "axis": {"grid": true, "tickBand": "extent"}
+  }
 }
