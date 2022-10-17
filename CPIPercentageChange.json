@@ -31,6 +31,7 @@
         },
         "color": {
           "field": "Month",
+          "type": "nominal",
           "scale": {"range": [
           "#984ea3",
           "#ff7f00",
